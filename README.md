@@ -1,5 +1,7 @@
 # vue_x6
 
+    一个使用 Vue2.0、element-ui、antv/X6 开发的简单流程图，可以直接拉到本地项目进行定制化开发
+
 ## Project setup
 
 ```
