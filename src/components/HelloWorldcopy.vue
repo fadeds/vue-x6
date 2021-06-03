@@ -517,35 +517,12 @@ export default {
 </script>
 
 <style>
-.main {
-  height: 100%;
-  width: 100%;
-  display: flex;
-}
 .operating {
-  /* flex: 1; */
-  /* display: flex; */
   height: 100%;
   width: 100%;
-  /* flex-direction: column; */
-}
-.top_tool {
-  height: 20px;
-  width: 100%;
-  display: flex;
-}
-.btn-group {
-  display: flex;
-}
-.btn {
-  cursor: pointer;
-  margin: 0 20px;
+  flex-direction: column;
 }
 #container {
   flex: 1;
-  /* height: 100%; */
-}
-.my-selecting {
-  border: 1px solid red;
 }
 </style>
