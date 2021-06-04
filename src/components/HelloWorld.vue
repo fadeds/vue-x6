@@ -474,6 +474,12 @@ export default {
         pageVisible: true,
         pageBreak: false,
       },
+      model: [
+        {
+          type: 'drag-node',
+          enableDelegate: true,
+        },
+      ],
       mousewheel: {
         enabled: true,
         modifiers: ['ctrl', 'meta'],
@@ -596,7 +602,9 @@ export default {
 }
 .top_tool {
   height: 20px;
-  width: 100%;
+  /* width: 100%; */
+  box-shadow: 0 2px 12px 0 rgb(0 0 0 / 10%);
+  padding: 10px;
   display: flex;
 }
 .btn-group {
