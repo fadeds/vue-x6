@@ -56,6 +56,11 @@
               <i class="iconfont icon-baocun"></i>
             </div>
           </el-tooltip>
+          <el-tooltip content="输出JSON到控制台" placement="bottom">
+            <div class="btn" @click="toJSON()" title="保存">
+              <i class="iconfont el-icon-download"></i>
+            </div>
+          </el-tooltip>
         </div>
       </div>
       <div id="container" style="flex: 1; width: 100%"></div>
@@ -424,14 +429,29 @@ export default {
         enabled: true,
         tolerance: 10,
       },
+      embedding: {
+        enabled: true,
+        validate(a) {
+          console.log(a)
+          _that.createdEdge(a.child.id, a.parent.id)
+          return true
+        },
+        // findParent(a) {
+        //   console.log(a)
+        //   return [a]
+        // },
+      },
       connecting: {
         // 节点连接
-        // anchor: 'center',
-        // connectionPoint: 'anchor',
+        anchor: 'center',
+        connectionPoint: 'anchor',
         allowBlank: false,
         allowMulti: false,
         allowNode: false,
+        allowLoop: false,
+        highlight: true,
         snap: true,
+
         createEdge() {
           return new Shape.Edge({
             attrs: {
@@ -474,12 +494,12 @@ export default {
         pageVisible: true,
         pageBreak: false,
       },
-      model: [
-        {
-          type: 'drag-node',
-          enableDelegate: true,
-        },
-      ],
+      // model: [
+      //   {
+      //     type: 'drag-node',
+      //     enableDelegate: true,
+      //   },
+      // ],
       mousewheel: {
         enabled: true,
         modifiers: ['ctrl', 'meta'],
@@ -529,6 +549,37 @@ export default {
     // });
   },
   methods: {
+    createdEdge(source, target) {
+      let a = new Shape.Edge({
+        source,
+        target,
+        attrs: {
+          line: {
+            stroke: '#1890ff',
+            strokeWidth: 1,
+            targetMarker: {
+              name: 'classic',
+              size: 8,
+            },
+            strokeDasharray: 0, //虚线
+            style: {
+              animation: 'ant-line 30s infinite linear',
+            },
+          },
+        },
+        label: {
+          text: '',
+        },
+        connector: 'normal',
+        router: { name: 'manhattan' },
+        // connector: _that.connectEdgeType.connector,
+        // router: {
+        //   name: _that.connectEdgeType.router.name || '',
+        // },
+        zIndex: 0,
+      })
+      this.graph.addEdge(a)
+    },
     // 拖拽生成正方形或者圆形
     startDrag(type, e) {
       startDragToGraph(this.graph, type, e)
@@ -561,6 +612,9 @@ export default {
           }
         )
       })
+    },
+    toJSON() {
+      console.log(this.graph.toJSON())
     },
     // 改变边形状
     changeEdgeType(e) {
