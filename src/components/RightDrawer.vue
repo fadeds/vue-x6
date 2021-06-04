@@ -190,7 +190,6 @@ export default {
   watch: {
     selectCell: {
       handler(val) {
-        console.log(val)
         if (val) {
           if (val.isNode()) {
             //节点
@@ -232,11 +231,6 @@ export default {
       this.grid.type = e
       this.changeGrid()
     },
-    // changeGrid() {
-    //   this.graph.drawGrid({
-    //     ...this.grid,
-    //   });
-    // },
     // 节点设置
     changeStrokeWidth(val) {
       this.selectCell.attr('body/strokeWidth', val)

@@ -1,4 +1,3 @@
-// import '@antv/x6-vue-shape';
 import { Addon } from '@antv/x6'
 // 拖拽生成四边形或者圆形
 export const startDragToGraph = (graph, type, e) => {

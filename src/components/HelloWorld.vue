@@ -10,10 +10,6 @@
           >
             <i class="iconfont icon-changfangxing"></i>
           </div>
-          <div class="btn-group_tips" v-if="showTips">
-            拖拽生成 <br />
-            资产拓扑图形
-          </div>
         </div>
         <!-- <div class="btn-group">
         <el-tooltip content="直线箭头" placement="bottom">
@@ -385,7 +381,6 @@ export default {
       data,
       graph: null,
       currentArrow: 1,
-      showTips: false,
       selectCell: null,
       grid: {
         // 网格设置

@@ -416,7 +416,7 @@ export default {
       //   color: '#fffbe6', // 设置画布背景颜色
       // },
     })
-    // this.graph.centerContent();
+    this.graph.centerContent()
     this.graph.fromJSON(this.data)
     this.graph.history.redo()
     this.graph.history.undo()
