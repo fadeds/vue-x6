@@ -2,7 +2,7 @@
 
     一个使用 Vue2.0、element-ui、antv/X6 开发的简单流程图，可以直接拉到本地项目进行定制化开发
 
-Demo：[预览]((https://fadeds.top/vue-x6/#/)
+Demo：[预览]((fadeds.github.io/vue-x6)
 
 
 githubPage
